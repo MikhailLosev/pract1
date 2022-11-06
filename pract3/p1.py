@@ -1,11 +1,22 @@
 def main():
-    C = 4
-    N = [1,2,4,-5,2]
-    lis = []
-    for i in N:
-        if sum(i) == C:
-            print(lis.append(N))
-        else:
-           break
+    from itertools import permutations
+
+    def find_closest_sum(numbers, target_n):
+        n = 4
+        target = numbers[target_n]
+        permlist = list(permutations(numbers, n))
+        sumlist = [sum(l) for l in permlist]
+        maxpos = 0
+        for i in range(1, len(sumlist)):
+            if abs(sumlist[i] - target) < abs(sumlist[maxpos] - target):
+                maxpos = i
+
+        return permlist[maxpos]
+
+    numbers = [1, 2, 4, -5, -2]
+    target = 1
+    result_shown = find_closest_sum(numbers, target)
+    print(result_shown)
+    print(numbers[target])
 if __name__ == "__main__":
     main()
