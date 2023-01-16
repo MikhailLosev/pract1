@@ -19,8 +19,10 @@ def get_pins(str_: str) -> list:
     result = list(set(list(combinations(lis_res, len(str_)))))
     return result
 def main():
-    get_pins('8')
+    str_ = str(input())
+    print(get_pins(str_))
 if __name__ == "__main__":
     main()
+
 
 
