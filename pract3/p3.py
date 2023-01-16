@@ -1,5 +1,4 @@
-def main():
-    strs = ['qwe','ewq','asd','dsa','dsas','qwee','zxc','cxz','xxz','z','s','qweasdzxc','zzxc']
+def groupify(list)->list:
     dict_ = {}
 
     for i in strs:
@@ -8,7 +7,7 @@ def main():
         dict_[len(i)].append(i)
 
     res = list()
-    for k in dict_.keys():
+    for k in dict_.keys():	
         words = dict_[k]
         buff = list()
         if len(words) == 1:
@@ -28,6 +27,10 @@ def main():
 
                 res.append(buff)
                 buff = list()
-    print(res)
+    return res
+
+def main():
+    strs = ['qwe','ewq','asd','dsa','dsas','qwee','zxc','cxz','xxz','z','s','qweasdzxc','zzxc']
+    groupify(strs)
 if __name__ == "__main__":
     main()
