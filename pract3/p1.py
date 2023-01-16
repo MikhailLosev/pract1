@@ -1,7 +1,6 @@
-def main():
-    from itertools import permutations
+from itertools import permutations
 
-    def find_closest_sum(numbers, target_n):
+def find_closest_sum(numbers:list, target_n:int)->int:
         n = 4
         target = numbers[target_n]
         permlist = list(permutations(numbers, n))
@@ -12,11 +11,13 @@ def main():
                 maxpos = i
 
         return permlist[maxpos]
-
+    
+def main():
     numbers = [1, 2, 4, -5, -2]
     target = 1
     result_shown = find_closest_sum(numbers, target)
     print(result_shown)
     print(numbers[target])
+    
 if __name__ == "__main__":
     main()
