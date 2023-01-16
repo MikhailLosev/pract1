@@ -1,4 +1,4 @@
-def groupify(list)->list:
+def groupify(strs:list)->list:
     dict_ = {}
 
     for i in strs:
@@ -7,7 +7,7 @@ def groupify(list)->list:
         dict_[len(i)].append(i)
 
     res = list()
-    for k in dict_.keys():	
+    for k in dict_.keys():
         words = dict_[k]
         buff = list()
         if len(words) == 1:
@@ -30,7 +30,10 @@ def groupify(list)->list:
     return res
 
 def main():
-    strs = ['qwe','ewq','asd','dsa','dsas','qwee','zxc','cxz','xxz','z','s','qweasdzxc','zzxc']
-    groupify(strs)
+    # strs = ['qwe','ewq','asd','dsa','dsas','qwee','zxc','cxz','xxz','z','s','qweasdzxc','zzxc']
+    strs = str(input())#qwe ewq asd dsa dsas qwee zxc cxz xxz z s qweasdzxc zzxc
+    strs = strs.strip()
+    strs = strs.split()
+    print(groupify(strs))
 if __name__ == "__main__":
     main()
