@@ -1,5 +1,4 @@
-def main():
-    def candies(n, k):
+def candies(n:int, k:int)->int:
         if k > n:
             return "No solution"
 
@@ -9,6 +8,10 @@ def main():
             for b in range(1,min(c,k)):
                 dp[c][b] = dp[c-1][b-1] + dp[c-1][b] * (b+1)
         return dp[n-1][k-1]
-    print(candies(4,7 ))
+
+def main():
+    print(candies(4,7))
+    print(candies(15,9))
+
 if __name__ == "__main__":
     main()
