@@ -3,16 +3,20 @@ import matplotlib.pyplot as plt
 from scipy import integrate
 import math
 
-def main():
-    def f(x):
-        return np.log(5 * x ** 3) * np.sin(6 * x)
 
-    def diff_f(x):
-        return 6 * np.cos(6 * x) * np.log(5 * x ** 3) + (3 * np.sin(6 * x) / x)
+def f(x:float)->float:
+    return np.log(5 * x ** 3) * np.sin(6 * x)
 
-    def intr(x):
-        return math.sqrt(1 + (6 * np.cos(6 * x) * np.log(5 * x ** 3) + (3 * np.sin(6 * x) / x)) ** 2)
-    x = np.arange(0, 5, 0.01)
+
+
+
+def diff_f(x:float)->float:
+    return 6 * np.cos(6 * x) * np.log(5 * x ** 3) + (3 * np.sin(6 * x) / x)
+
+def intr(x:float)->float:
+    return math.sqrt(1 + (6 * np.cos(6 * x) * np.log(5 * x ** 3) + (3 * np.sin(6 * x) / x)) ** 2)
+def draw_graphs():
+    x = np.arange(1, 5, 0.01)
     func = np.log(5*x**3)*np.sin(6*x)
     main_func = plt.plot(x,func)
     f_min = 1000
@@ -49,7 +53,7 @@ def main():
     plt.plot(x, diff_2_y)
     plt.show()
 
-    for i in np.arange (0., 5.5, 0.5):
+    for i in np.arange (1, 5.5, 0.5):
         x0 = i
         y0 = f(x0)
         diff_y0 = diff_f(x0)
@@ -59,8 +63,7 @@ def main():
 
     plt.show()
 
-    v, err = integrate.quad(intr, 0, 5)
+    v, err = integrate.quad(intr, 1, 5)
     print(v)
-
 if __name__ == "__main__":
-    main()
+    draw_graphs()
