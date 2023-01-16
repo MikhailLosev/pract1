@@ -1,5 +1,6 @@
 from itertools import combinations
-def get_pins(str_):
+
+def get_pins(str_: str) -> list:
     lis1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [None, 0, None]]
     lis_res = []
     for k in str_:
@@ -15,7 +16,8 @@ def get_pins(str_):
                         lis_res.append(lis1[idx_i + 1][idx_j])
                     if idx_i != 0:
                         lis_res.append(lis1[idx_i - 1][idx_j])
-    print(set(list(combinations(lis_res, len(str_)))))
+    result = list(set(list(combinations(lis_res, len(str_)))))
+    return result
 def main():
     get_pins('8')
 if __name__ == "__main__":
