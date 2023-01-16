@@ -13,8 +13,11 @@ def find_closest_sum(numbers:list, target_n:int)->int:
         return permlist[maxpos]
     
 def main():
-    numbers = [1, 2, 4, -5, -2]
-    target = 1
+    numbers = str(input())
+    numbers = numbers.strip()
+    numbers = numbers.split()
+    numbers = [int(x) for x in numbers]
+    target = int(input())
     result_shown = find_closest_sum(numbers, target)
     print(result_shown)
     print(numbers[target])
