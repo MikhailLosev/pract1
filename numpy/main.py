@@ -16,7 +16,7 @@ def diff_f(x:float)->float:
 def intr(x:float)->float:
     return math.sqrt(1 + (6 * np.cos(6 * x) * np.log(5 * x ** 3) + (3 * np.sin(6 * x) / x)) ** 2)
 def draw_graphs():
-    x = np.arange(1, 5, 0.01)
+    x = np.arange(0.01, 5, 0.01)
     func = np.log(5*x**3)*np.sin(6*x)
     main_func = plt.plot(x,func)
     f_min = 1000
@@ -33,7 +33,7 @@ def draw_graphs():
     max_dot = plt.plot(x_max, f_max, 'o', color = 'b')
     min_dot = plt.plot(x_min, f_min, 'o', color = 'r')
 
-    x0 = 1
+    x0 = 2
     y0 = f(x0)
     M = plt.plot(x0, y0, 'o', color = 'green')
     diff_y0 = diff_f(x0)
@@ -53,7 +53,7 @@ def draw_graphs():
     plt.plot(x, diff_2_y)
     plt.show()
 
-    for i in np.arange (1, 5.5, 0.5):
+    for i in np.arange (0.01, 5.5, 0.5):
         x0 = i
         y0 = f(x0)
         diff_y0 = diff_f(x0)
@@ -63,7 +63,7 @@ def draw_graphs():
 
     plt.show()
 
-    v, err = integrate.quad(intr, 1, 5)
+    v, err = integrate.quad(intr, 0, 5)
     print(v)
 if __name__ == "__main__":
     draw_graphs()
